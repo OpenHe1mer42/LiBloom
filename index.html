@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>LiBloom</title>
+  </head>
+
+  <body>
+    <main>
+      <div class="left">
+        <a href="#home"
+          ><img src="/images/libloom.png" alt="LiBloom Logo" id="logo"
+        /></a>
+        <div class="icons">
+          <a href="#home">
+            <img src="/images/home.svg" alt="Home" class="icon" />
+          </a>
+          <a href="/notfound.html">
+            <img src="/images/heart.svg" alt="Wishlist" class="icon" />
+          </a>
+          <a href="/notfound.html">
+            <img src="/images/cart.svg" alt="Cart" class="icon" />
+          </a>
+          <a href="#profile">
+            <img
+              src="/images/user.svg"
+              alt="User"
+              class="icon"
+              id="user-icon"
+            />
+          </a>
+          <a href="#settings">
+            <img src="/images/settings.svg" alt="Settings" class="icon" />
+          </a>
+        </div>
+      </div>
+      <div class="feed">
+        <div id="home">
+          <input id="search" type="search" placeholder="Search for books..." />
+          <img src="/images/inso.jpg" alt="Profile" id="nav-user" />
+        </div>
+        <div id="content">
+          <p>Trending Books:</p>
+          <div id="trending" class="row"></div>
+          <p>New Books:</p>
+          <div id="newBooks" class="row"></div>
+          <p>Bestsellers:</p>
+          <div id="bestsellers" class="row"></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="wrap">
+          <div id="profile">
+            <img src="/images/inso.jpg" alt="Profile Picture" class="pfp" />
+            <p id="name">Edona Mulaj</p>
+            <p id="username">@edonamulaj</p>
+            <hr />
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Corporis, blanditiis.
+              </p>
+            </div>
+            <hr />
+            <div id="stats">
+              <p>Statistics:</p>
+              <div class="read stat1">
+                <p>Books read this year:</p>
+                <p class="nr">42</p>
+              </div>
+              <div class="frequency stat1">
+                <p>Most pages read:</p>
+                <p class="nr">1142</p>
+              </div>
+              <div class="fav-author stat1">
+                <p>Favourite author:</p>
+                <p class="nr">Agatha Christie</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <div class="book-details">
+            <img src="" alt="Book Cover" class="cover" />
+            <div class="details">
+              <p class="title"></p>
+              <p class="author"></p>
+            </div>
+          </div>
+          <span class="close">&times;</span>
+        </div>
+      </div>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
