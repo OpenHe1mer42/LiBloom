@@ -1,8 +1,7 @@
 const trendingRow = document.getElementById("trending");
 const newBooksRow = document.getElementById("newBooks");
 const bestsellersRow = document.getElementById("bestsellers");
-const popup = document.getElementById("popup");
-
+// const popup = document.getElementById("popup");
 
 function createBookElement(title, author, coverUrl) {
   return `
@@ -22,14 +21,13 @@ function createBookElement(title, author, coverUrl) {
 }
 
 function addBooksToRow(row, booksData) {
-  row.innerHTML = ""; 
+  row.innerHTML = "";
   booksData.forEach((book) => {
     const { title, author, coverUrl } = book;
     const bookHtml = createBookElement(title, author, coverUrl);
     row.insertAdjacentHTML("beforeend", bookHtml);
   });
 }
-
 
 const trendingBooksData = [
   {
@@ -134,23 +132,23 @@ addBooksToRow(trendingRow, trendingBooksData);
 addBooksToRow(newBooksRow, newBooksData);
 addBooksToRow(bestsellersRow, bestsellersData);
 
-const books = document.querySelectorAll(".book");
-books.forEach((book) => {
-  book.addEventListener("click", () => {
-    popup.style.display = "block";
-  });
-});
+// const books = document.querySelectorAll(".book");
+// books.forEach((book) => {
+//   book.addEventListener("click", () => {
+//     popup.style.display = "block";
+//   });
+// });
 
-const closeButton = document.querySelector(".close");
-closeButton.addEventListener("click", () => {
-  popup.style.display = "none";
-});
+// const closeButton = document.querySelector(".close");
+// closeButton.addEventListener("click", () => {
+//   popup.style.display = "none";
+// });
 
-window.addEventListener("click", (e) => {
-  if (e.target === popup) {
-    popup.style.display = "none";
-  }
-});
+// window.addEventListener("click", (e) => {
+//   if (e.target === popup) {
+//     popup.style.display = "none";
+//   }
+// });
 
 document.getElementById("user-icon").addEventListener("click", function () {
   document.querySelector(".right").classList.add("flash-animation");
