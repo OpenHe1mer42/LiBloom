@@ -25,7 +25,7 @@ function addToCart(title, author, coverUrl) {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push({ title, author, coverUrl });
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert(`${title} added to cart`);
+  alert(`${title} added to cart!`);
 }
 
 function addBooksToRow(row, booksData) {
@@ -261,3 +261,4 @@ easterButton2.addEventListener("click", () => {
     tapCount2 = 0; // Reset tap count after opening the image
   }
 });
+

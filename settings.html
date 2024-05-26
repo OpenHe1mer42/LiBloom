@@ -27,35 +27,59 @@
               id="user-icon"
             />
           </a>
-          <a href="#settings">
+          <a href="/settings.html">
             <img src="/images/settings.svg" alt="Settings" class="icon" />
           </a>
         </div>
       </div>
       <div class="feed">
         <div id="home">
-          <input id="search" type="search" placeholder="Search for books..." />
+          <input
+            id="search"
+            type="search"
+            placeholder="Go to Home to search for books!"
+            disabled
+          />
           <img src="/images/user.jpg" alt="Profile" id="nav-user" />
         </div>
-        <div id="content">
-          <p>Trending Books:</p>
-          <div id="trending" class="row"></div>
-          <p>New Books:</p>
-          <div id="newBooks" class="row"></div>
-          <p>Bestsellers:</p>
-          <div id="bestsellers" class="row"></div>
-          <p>Settings:</p>
-          <div class="row">
-            <button class="setbutton" onclick="changeFontSize(14)">
-              Smaller Font
-            </button>
-            <button class="setbutton" onclick="changeFontSize(16)">
-              Default Font
-            </button>
-            <button class="setbutton" onclick="changeFontSize(20)">
-              Larger Font
-            </button>
-          </div>
+        <p>Settings:</p>
+        <div class="row">
+          <button class="setbutton" onclick="changeFontSize(14)">
+            Smaller Font
+          </button>
+          <button class="setbutton" onclick="changeFontSize(16)">
+            Default Font
+          </button>
+          <button class="setbutton" onclick="changeFontSize(20)">
+            Larger Font
+          </button>
+        </div>
+        <hr />
+        <div class="data">
+          <p>User Data:</p>
+          <label for="name">Name: </label>
+          <input type="text" placeholder="Filan Fisteku" /><br />
+          <label for="username">Username: </label>
+          <input type="text" placeholder="@filan.fisteku" disabled /><br />
+          <label for="pass">Password: </label>
+          <input
+            type="password"
+            name="pass"
+            id="pass"
+            placeholder="*********"
+            disabled
+          /><br />
+          <label for="pass">New Password: </label>
+          <input
+            type="password"
+            name="pass"
+            id="pass"
+            placeholder="*********"
+          />
+        </div>
+        <hr />
+        <div class="card-info">
+          <p>Card Information:</p>
         </div>
       </div>
 
@@ -88,35 +112,6 @@
                 <p class="nr">Douglas Adams</p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="popup" class="popup">
-        <div class="popup-content">
-          <img src="#" alt="Book Cover" class="cover" id="popup-cover" />
-          <div class="details">
-            <p id="popup-title" class="title"></p>
-            <p id="popup-author" class="author"></p>
-            <p id="popup-description" class="description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-              omnis sit expedita possimus quasi, ipsa consequatur, libero
-              voluptatibus nam doloribus asperiores? Laudantium corporis harum
-              labore quo adipisci ipsum. At, iusto?
-            </p>
-            <p id="popup-price" class="price"></p>
-            <div class="buttons">
-              <div class="quantity-container">
-                <button class="quantity-btn minus">-</button>
-                <input type="text" class="quantity-input" value="1" readonly />
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="addtocart" onclick="addToCart()">
-                <img src="/images/addtocart.svg" alt="Add To Cart"/> Add to
-                Cart
-              </button>
-            </div>
-            <span class="close"><p>Tap to exit.</p></span>
           </div>
         </div>
       </div>
