@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>LiBloom - Cart</title>
+  </head>
+  <body>
+    <main>
+      <div class="left">
+        <a href="/index.html"
+          ><img src="/images/libloom.png" alt="LiBloom Logo" id="logo"
+        /></a>
+        <div class="icons">
+          <a href="/index.html">
+            <img src="/images/home.svg" alt="Home" class="icon" />
+          </a>
+          <a href="/cart.html">
+            <img src="/images/cart.svg" alt="Cart" class="icon" />
+          </a>
+          <a href="#">
+            <img
+              onclick="showProfile()"
+              src="/images/user.svg"
+              alt="User"
+              class="icon"
+              id="user-icon"
+            />
+          </a>
+          <a href="/index.html">
+            <img src="/images/settings.svg" alt="Settings" class="icon" />
+          </a>
+        </div>
+      </div>
+      <div class="feed">
+        <div id="home">
+          <h1>Your Cart</h1>
+          <img src="/images/user.jpg" alt="Profile" id="nav-user" />
+        </div>
+        <div id="cart-content">
+          <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <button class="conshop" onclick="window.location.href='/index.html'">
+          Continue Shopping!
+        </button>
+      </div>
+      <div class="right">
+        <div class="wrap">
+          <div id="profile">
+            <img src="/images/user.jpg" alt="Profile Picture" class="pfp" />
+            <p id="name">Filan Fisteku</p>
+            <p id="username">@filan.fisteku</p>
+            <hr />
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Corporis, blanditiis.
+              </p>
+            </div>
+            <hr />
+            <div id="stats">
+              <p>Statistics:</p>
+              <div class="read stat1">
+                <p>Books read this year:</p>
+                <p class="nr">42</p>
+              </div>
+              <div class="frequency stat1">
+                <p>Most pages read:</p>
+                <p class="nr">1142</p>
+              </div>
+              <div class="fav-author stat1">
+                <p>Favourite author:</p>
+                <p class="nr">Agatha Christie</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+  </body>
+</html>

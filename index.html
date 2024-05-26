@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="style.css" />
     <title>LiBloom</title>
   </head>
-
   <body>
     <main>
       <div class="left">
@@ -17,10 +16,7 @@
           <a href="#home">
             <img src="/images/home.svg" alt="Home" class="icon" />
           </a>
-          <a href="/notfound.html">
-            <img src="/images/heart.svg" alt="Wishlist" class="icon" />
-          </a>
-          <a href="/notfound.html">
+          <a href="/cart.html">
             <img src="/images/cart.svg" alt="Cart" class="icon" />
           </a>
           <a href="#profile">
@@ -39,7 +35,7 @@
       <div class="feed">
         <div id="home">
           <input id="search" type="search" placeholder="Search for books..." />
-          <img src="/images/inso.jpg" alt="Profile" id="nav-user" />
+          <img src="/images/user.jpg" alt="Profile" id="nav-user" />
         </div>
         <div id="content">
           <p>Trending Books:</p>
@@ -48,14 +44,27 @@
           <div id="newBooks" class="row"></div>
           <p>Bestsellers:</p>
           <div id="bestsellers" class="row"></div>
+          <p>Settings:</p>
+          <div class="row">
+            <button class="setbutton" onclick="changeFontSize(14)">
+              Smaller Font
+            </button>
+            <button class="setbutton" onclick="changeFontSize(16)">
+              Default Font
+            </button>
+            <button class="setbutton" onclick="changeFontSize(20)">
+              Larger Font
+            </button>
+          </div>
         </div>
       </div>
+
       <div class="right">
         <div class="wrap">
           <div id="profile">
-            <img src="/images/inso.jpg" alt="Profile Picture" class="pfp" />
-            <p id="name">Edona Mulaj</p>
-            <p id="username">@edonamulaj</p>
+            <img src="/images/user.jpg" alt="Profile Picture" class="pfp" />
+            <p id="name">Filan Fisteku</p>
+            <p id="username">@filan.fisteku</p>
             <hr />
             <div>
               <p>
@@ -66,7 +75,7 @@
             <hr />
             <div id="stats">
               <p>Statistics:</p>
-              <div class="read stat1">
+              <div class="read stat1" id="easter1">
                 <p>Books read this year:</p>
                 <p class="nr">42</p>
               </div>
@@ -74,18 +83,41 @@
                 <p>Most pages read:</p>
                 <p class="nr">1142</p>
               </div>
-              <div class="fav-author stat1">
+              <div class="fav-author stat1" id="easter2">
                 <p>Favourite author:</p>
-                <p class="nr">Agatha Christie</p>
+                <p class="nr">Douglas Adams</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <div id="popup" class="popup">
         <div class="popup-content">
-          <!-- content -->
-          <span class="close">&times;</span>
+          <img src="#" alt="Book Cover" class="cover" id="popup-cover" />
+          <div class="details">
+            <p id="popup-title" class="title"></p>
+            <p id="popup-author" class="author"></p>
+            <p id="popup-description" class="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+              omnis sit expedita possimus quasi, ipsa consequatur, libero
+              voluptatibus nam doloribus asperiores? Laudantium corporis harum
+              labore quo adipisci ipsum. At, iusto?
+            </p>
+            <p id="popup-price" class="price"></p>
+            <div class="buttons">
+              <div class="quantity-container">
+                <button class="quantity-btn minus">-</button>
+                <input type="text" class="quantity-input" value="1" readonly />
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="addtocart">
+                <img src="/images/addtocart.svg" alt="Add To Cart" onclick="addToCart()"/> Add to
+                Cart
+              </button>
+            </div>
+            <span class="close"><p>Tap to exit.</p></span>
+          </div>
         </div>
       </div>
     </main>
