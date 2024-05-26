@@ -21,6 +21,20 @@ function createBookElement(title, author, coverUrl) {
   `;
 }
 
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.body.addEventListener("click", function(event) {
+    if (event.target.closest(".addtocart")) {
+      const button = event.target.closest(".addtocart");
+      const title = button.getAttribute("data-title");
+      const author = button.getAttribute("data-author");
+      const coverUrl = button.getAttribute("data-coverurl");
+
+      addToCart(title, author, coverUrl);
+    }
+  });
+});
+
 function addToCart(title, author, coverUrl) {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push({ title, author, coverUrl });
@@ -35,6 +49,7 @@ function addBooksToRow(row, booksData) {
     const bookHtml = createBookElement(title, author, coverUrl);
     row.insertAdjacentHTML("beforeend", bookHtml);
   });
+
 }
 
 const trendingBooksData = [
@@ -158,10 +173,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const closePopup = document.querySelector(".popup .close");
 
   function openPopup(coverUrl, title, author) {
+    const addToCartButton = document.getElementById('addtocart');
     popupCover.src = coverUrl;
     popupTitle.textContent = title;
     popupAuthor.textContent = author;
     popup.style.display = "block";
+    addToCartButton.setAttribute('data-title', title);
+  addToCartButton.setAttribute('data-author', author);
+  addToCartButton.setAttribute('data-coverurl', coverUrl);
   }
 
   function closePopupFunc() {
