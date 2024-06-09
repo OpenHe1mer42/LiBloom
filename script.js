@@ -29,15 +29,15 @@ document.addEventListener("DOMContentLoaded", function() {
       const title = button.getAttribute("data-title");
       const author = button.getAttribute("data-author");
       const coverUrl = button.getAttribute("data-coverurl");
-
-      addToCart(title, author, coverUrl);
+      const quantity = button.getAttribute("data-quantity");
+      addToCart(title, author, coverUrl, quantity);
     }
   });
 });
 
-function addToCart(title, author, coverUrl) {
+function addToCart(title, author, coverUrl, quantity) {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.push({ title, author, coverUrl });
+  cart.push({ title, author, coverUrl, quantity });
   localStorage.setItem("cart", JSON.stringify(cart));
   alert(`${title} added to cart!`);
 }
@@ -174,14 +174,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function openPopup(coverUrl, title, author) {
     const addToCartButton = document.getElementById('addtocart');
+    const quantityInput = document.querySelector(".quantity-input");
+
+    const bookId = `${title}-${author}`;  // Create a unique identifier for the book
+    const storedQuantity = localStorage.getItem(bookId);
+
+    const quantity = storedQuantity ? parseInt(storedQuantity, 10) : 1;
+    quantityInput.value = quantity;
+
     popupCover.src = coverUrl;
     popupTitle.textContent = title;
     popupAuthor.textContent = author;
     popup.style.display = "block";
     addToCartButton.setAttribute('data-title', title);
-  addToCartButton.setAttribute('data-author', author);
-  addToCartButton.setAttribute('data-coverurl', coverUrl);
-  }
+    addToCartButton.setAttribute('data-author', author);
+    addToCartButton.setAttribute('data-coverurl', coverUrl);
+    addToCartButton.setAttribute('data-quantity', quantity);
+}
 
   function closePopupFunc() {
     popup.style.display = "none";
@@ -200,6 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const coverUrl = book.querySelector("img").src;
       const title = book.querySelector("p").textContent;
       const author = book.querySelector(".author").textContent;
+     
       openPopup(coverUrl, title, author);
     });
   });
@@ -217,16 +227,29 @@ document.addEventListener("DOMContentLoaded", function () {
   const plusBtn = document.querySelector(".quantity-btn.plus");
   const quantityInput = document.querySelector(".quantity-input");
 
+  function updateQuantity(change) {
+      let currentValue = parseInt(quantityInput.value, 10);
+      currentValue += change;
+      if (currentValue < 1) {
+          currentValue = 1;
+      }
+      quantityInput.value = currentValue;
+
+      const addToCartButton = document.getElementById('addtocart');
+      addToCartButton.setAttribute('data-quantity', currentValue);
+
+      const title = addToCartButton.getAttribute('data-title');
+      const author = addToCartButton.getAttribute('data-author');
+      const bookId = `${title}-${author}`;
+      localStorage.setItem(bookId, currentValue);
+  }
+
   minusBtn.addEventListener("click", function () {
-    let currentValue = parseInt(quantityInput.value, 10);
-    if (currentValue > 1) {
-      quantityInput.value = currentValue - 1;
-    }
+      updateQuantity(-1);
   });
 
   plusBtn.addEventListener("click", function () {
-    let currentValue = parseInt(quantityInput.value, 10);
-    quantityInput.value = currentValue + 1;
+      updateQuantity(1);
   });
 });
 

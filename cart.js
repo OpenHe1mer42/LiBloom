@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cartContent = document.getElementById("cart-content");
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const updateCart = () => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    location.reload();
+  };
 
   if (cart.length === 0) {
     cartContent.innerHTML = "<p>Your cart is empty</p>";
@@ -14,42 +19,29 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="title">${item.title}</p>
           <p class="author">${item.author}</p>
           <div class="quantity-container">
-            <button class="quantity-btn minus" onclick="updateQuantity(${index}, -1)">-</button>
+            <button class="quantity-btn minus" data-index="${index}">-</button>
             <input type="text" class="quantity-input" value="${item.quantity}" readonly />
-            <button class="quantity-btn plus" onclick="updateQuantity(${index}, 1)">+</button>
+            <button class="quantity-btn plus" data-index="${index}">+</button>
           </div>
         </div>
       `;
       cartContent.appendChild(cartItem);
     });
   }
-});
 
-function updateQuantity(index, change) {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart[index].quantity += change;
-  if (cart[index].quantity < 1) {
-    cart.splice(index, 1);
-  }
-  localStorage.setItem("cart", JSON.stringify(cart));
-  location.reload();
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const minusBtn = document.querySelector(".quantity-btn.minus");
-  const plusBtn = document.querySelector(".quantity-btn.plus");
-  const quantityInput = document.querySelector(".quantity-input");
-
-  minusBtn.addEventListener("click", function () {
-    let currentValue = parseInt(quantityInput.value, 10);
-    if (currentValue > 1) {
-      quantityInput.value = currentValue - 1;
+  cartContent.addEventListener("click", (event) => {
+    if (event.target.classList.contains("quantity-btn")) {
+      const index = parseInt(event.target.getAttribute("data-index"), 10);
+      if (event.target.classList.contains("minus")) {
+        cart[index].quantity = parseInt(cart[index].quantity, 10) - 1;
+        if (cart[index].quantity < 1) {
+          cart.splice(index, 1);
+        }
+      } else if (event.target.classList.contains("plus")) {
+        cart[index].quantity = parseInt(cart[index].quantity, 10) + 1;
+      }
+      updateCart();
     }
-  });
-
-  plusBtn.addEventListener("click", function () {
-    let currentValue = parseInt(quantityInput.value, 10);
-    quantityInput.value = currentValue + 1;
   });
 });
 
