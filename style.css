@@ -65,7 +65,7 @@ input[type="search"] {
   height: 40px;
   padding: 5px;
   border: none;
-  border-radius: 5px;
+  border-radius: 0px;
   box-shadow: 0 0 1px 1px #ccc;
   margin-left: 5px;
 }
@@ -97,7 +97,7 @@ input[type="search"]:active {
   display: flex;
   flex-direction: column;
   margin: 10px;
-  border-radius: 5px;
+  border-radius: 0px;
   p {
     margin: 0;
     padding: 0;
@@ -111,7 +111,7 @@ input[type="search"]:active {
   overflow-x: auto;
   display: flex;
   flex-direction: row;
-  border-radius: 5px;
+  border-radius: 0px;
   height: auto;
   width: auto;
   margin: 10px;
@@ -132,13 +132,13 @@ input[type="search"]:active {
   width: min-content;
   height: inherit;
   box-shadow: 0 0 1px 1px #ccc;
-  border-radius: 5px;
+  border-radius: 0px;
   padding: 10px;
   margin: 5px;
   margin-right: 15px;
   .cover {
     width: 150px;
-    border-radius: 5px;
+    border-radius: 0px;
   }
   p {
     font-weight: bold;
@@ -180,7 +180,7 @@ input[type="search"]:active {
   height: 90vh;
   margin: 15px;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 0px;
   background-color: #fcfafa;
   box-shadow: 0 0 3px #ccc inset;
   overflow: hidden;
@@ -202,7 +202,7 @@ input[type="search"]:active {
 }
 
 .pfp {
-  border-radius: 5px;
+  border-radius: 0px;
   width: fit-content;
   height: 100px;
   margin: 10px 0;
@@ -228,7 +228,7 @@ input[type="search"]:active {
   width: 100%;
   height: fit-content;
   background-color: #c8d3d5;
-  border-radius: 5px;
+  border-radius: 0px;
 }
 
 .stat1:hover {
@@ -279,7 +279,7 @@ input[type="search"]:active {
   transform: translate(-50%, -50%);
   background-color: #fff;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 0px;
   display: flex;
   flex-direction: row;
   overflow: scroll;
@@ -314,7 +314,7 @@ input[type="search"]:active {
     justify-self: center;
     margin: 5px auto;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 0px;
     img {
       width: 30px;
       height: 30px;
@@ -342,12 +342,12 @@ input[type="search"]:active {
   line-height: 30px;
   background-color: #d6a2ad;
   border: none;
-  border-radius: 5px;
+  border-radius: 0px;
 }
 
 .quantity-input {
   border: 2px solid #d6a2ad;
-  border-radius: 5px;
+  border-radius: 0px;
   width: 40px;
   height: auto;
   text-align: center;
@@ -427,7 +427,7 @@ input[type="search"]:active {
   margin: 5px;
   background-color: #d6a2ad;
   color: black;
-  border-radius: 5px;
+  border-radius: 0px;
 }
 
 /* CART */
@@ -484,7 +484,7 @@ input[type="search"]:active {
   padding: 10px;
   border: none;
   background-color: #d6a2ad;
-  border-radius: 5px;
+  border-radius: 0px;
   cursor: pointer;
   margin-top: 10px;
 }
@@ -494,6 +494,6 @@ input[type="search"]:active {
     margin: 5px;
     padding: 5px;
     border: 1px solid #d6a2ad;
-    border-radius: 5px;
+    border-radius: 0px;
   }
 }
